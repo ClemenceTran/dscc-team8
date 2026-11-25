@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "PipelineStorage": "UseDevelopmentStorage=true",
+    "COSMOS_ENDPOINT": "",
+    "COSMOS_KEY": "",
+    "PREDICT_URL": "http://127.0.0.1:18081/predict"
+  },
+  "Host": {
+    "CORS": "http://127.0.0.1:18080"
+  }
+}

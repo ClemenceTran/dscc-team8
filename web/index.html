@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a30">
+  <title>Customer Churn Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="vendor/chart.umd.min.js"></script>
+  <script defer src="config.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span> Churn Analytics</a>
+    <nav aria-label="Dashboard">
+      <a href="#overview"><span aria-hidden="true">◫</span> Overview</a>
+      <a href="#confidence"><span aria-hidden="true">◉</span> Risk explorer</a>
+      <a href="#inferences"><span aria-hidden="true">☷</span> Inferences</a>
+    </nav>
+  </aside>
+  <main id="overview" class="workspace">
+    <header class="page-header">
+      <div><h1>Customer churn</h1><p>Explore churn risk across the latest 20 processed CSV batches.</p></div>
+      <button type="button" id="refresh"><span aria-hidden="true">↻</span> Refresh now</button>
+    </header>
+    <p class="status" id="status" role="status">Loading results…</p>
+
+    <section class="pipeline-strip" aria-label="Pipeline architecture">
+      <div><h2>From upload to insight</h2><p>How customer CSVs move through the pipeline</p></div>
+      <ol>
+        <li><b>Upload</b><span>Blob Storage</span></li>
+        <li><b>Validate &amp; queue</b><span>Azure Functions</span></li>
+        <li><b>Predict</b><span>Inference API</span></li>
+        <li><b>Store &amp; display</b><span>Cosmos DB</span></li>
+      </ol>
+    </section>
+
+    <section class="stats" aria-label="Recent results summary">
+      <article><span class="metric-label">Customers scored</span><strong id="total">—</strong><small>Across the latest batches</small></article>
+      <article><span class="metric-label">Predicted churn share</span><strong id="negative">—</strong><small>Based on the model’s decision</small></article>
+      <article><span class="metric-label">Average batch processing time</span><strong id="duration">—</strong><small>Input read and prediction</small></article>
+    </section>
+
+    <section class="panel distribution" aria-labelledby="distribution-title">
+      <div class="panel-heading"><h2 id="distribution-title">Churn risk distribution</h2><p>Customers grouped by the API’s risk bands</p></div>
+      <p class="empty-state" id="chart-empty">No predictions to chart yet.</p>
+      <div class="chart-layout" id="chart-area" hidden>
+        <div class="chart-frame">
+          <canvas id="chart" role="img" aria-label="Prediction counts"></canvas>
+          <div class="chart-total" aria-hidden="true"><strong id="chart-total">0</strong><span>customers</span></div>
+        </div>
+        <ul class="legend" id="legend" aria-label="Prediction breakdown"></ul>
+      </div>
+      <div id="chart-fallback" hidden></div>
+    </section>
+
+    <section class="panel confidence-panel" id="confidence" aria-labelledby="confidence-title">
+      <div class="panel-heading">
+        <h2 id="confidence-title">Which batches need a closer look?</h2>
+        <p>Find batches with at least one customer at or above your chosen churn probability.</p>
+      </div>
+      <div class="confidence-body">
+        <div>
+          <label for="threshold">Churn probability threshold</label>
+          <output id="threshold-value" for="threshold">80%</output>
+          <input id="threshold" type="range" min="0" max="100" value="80" aria-describedby="confidence-note">
+          <div class="range-labels" aria-hidden="true"><span>0%</span><span>100%</span></div>
+          <p class="confidence-note" id="confidence-note">This filter uses the highest customer score per batch. Measuring accuracy requires known churn outcomes.</p>
+          <p class="confidence-note" id="mock-note" hidden>Mock batches use rule-based examples.</p>
+        </div>
+        <div class="review-result"><strong id="review-count" role="status">—</strong><span>Batches at or above threshold</span>
+          <label class="filter"><input id="review-only" type="checkbox"> Show only these in the table</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="inferences" aria-labelledby="inferences-title">
+      <div class="panel-heading"><h2 id="inferences-title">Recent batches</h2><p>Newest processed CSVs first</p></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Recent batches table">
+        <table><thead><tr><th scope="col">File</th><th scope="col">Customers</th><th scope="col">High risk</th><th scope="col">Highest probability</th><th scope="col">Model</th><th scope="col">Duration</th><th scope="col">Processed at</th></tr></thead><tbody id="rows"></tbody></table>
+      </div>
+      <p class="empty-state" id="empty">Waiting for the first CSV batch.</p>
+    </section>
+  </main>
+</body>
+</html>
