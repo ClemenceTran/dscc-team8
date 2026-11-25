@@ -1,4 +1,5 @@
-name: deploy-api
+
+name: deploy-api-and-functions
 
 on:
   workflow_run:
@@ -17,6 +18,11 @@ jobs:
     environment: production
 
     steps:
+      - name: Checkout tested commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
       - name: Azure login with OIDC
         uses: azure/login@v2
         with:
@@ -33,10 +39,26 @@ jobs:
             --resource-group rg-projet-clem \
             --image "${IMAGE,,}"
 
-      - name: Verify deployment
+      - name: Verify API deployment
         run: |
           az containerapp revision list \
             --name api-clem \
             --resource-group rg-projet-clem \
             --query "[?properties.active].{name:name,health:properties.health,running:properties.runningState}" \
+            --output table
+
+      - name: Deploy Functions to Flex Consumption
+        uses: Azure/functions-action@v1
+        with:
+          app-name: func-clem
+          package: functions
+          remote-build: true
+          respect-funcignore: true
+
+      - name: Verify Functions deployment
+        run: |
+          az functionapp function list \
+            --name func-clem \
+            --resource-group rg-projet-clem \
+            --query "[].name" \
             --output table
