@@ -1,0 +1,42 @@
+name: deploy-api
+
+on:
+  workflow_run:
+    workflows: ["ci"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Azure login with OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy API to Azure Container Apps
+        env:
+          IMAGE: ghcr.io/${{ github.repository }}/api:${{ github.event.workflow_run.head_sha }}
+        run: |
+          az containerapp update \
+            --name api-clem \
+            --resource-group rg-projet-clem \
+            --image "${IMAGE,,}"
+
+      - name: Verify deployment
+        run: |
+          az containerapp revision list \
+            --name api-clem \
+            --resource-group rg-projet-clem \
+            --query "[?properties.active].{name:name,health:properties.health,running:properties.runningState}" \
+            --output table

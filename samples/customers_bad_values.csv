@@ -1,0 +1,6 @@
+customerID,SeniorCitizen,tenure,MonthlyCharges,TotalCharges,gender,Partner,Dependents,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod
+4376-KFVRS,0,72,114.05,8468.2,Male,Yes,Yes,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Credit card (automatic)
+2754-SDJRD,1,8,100.15,908.55,Female,No,No,Yes,Yes,Fiber optic,No,No,No,Yes,Yes,Yes,Weekly,Yes,Credit card (automatic)
+9917-KWRBE,0,41,78.35,3211.2,Female,Yes,Yes,Yes,Yes,DSL,Yes,Yes,Yes,No,Yes,No,One year,Yes,Credit card (automatic)
+0365-GXEZS,0,-4,78.2,1468.75,Male,Yes,No,Yes,No,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,No,Electronic check
+9385-NXKDA,0,72,82.65,5919.35,Female,Yes,No,Yes,Yes,DSL,Yes,Yes,Yes,No,Yes,Yes,Two year,Yes,Credit card (automatic)

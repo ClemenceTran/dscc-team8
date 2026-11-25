@@ -1,0 +1,50 @@
+{
+  "model_version": "1.0.0",
+  "algorithm": "logistic_regression",
+  "seed": 42,
+  "dataset": "IBM Telco Customer Churn (Apache-2.0)",
+  "rows": 7043,
+  "train_rows": 5634,
+  "test_rows": 1409,
+  "cv_auc_train": {
+    "logistic_regression": 0.846,
+    "hist_gradient_boosting": 0.845
+  },
+  "test_set": {
+    "baseline_most_frequent": {
+      "roc_auc": 0.5,
+      "f1_churn": 0.0,
+      "recall_churn": 0.0,
+      "precision_churn": 0.0,
+      "accuracy": 0.7346
+    },
+    "baseline_stratified": {
+      "roc_auc": 0.5163,
+      "f1_churn": 0.2903,
+      "recall_churn": 0.2914,
+      "precision_churn": 0.2891,
+      "accuracy": 0.6217
+    },
+    "logistic_regression": {
+      "roc_auc": 0.8416,
+      "f1_churn": 0.6136,
+      "recall_churn": 0.7834,
+      "precision_churn": 0.5043,
+      "accuracy": 0.7381
+    },
+    "hist_gradient_boosting": {
+      "roc_auc": 0.8421,
+      "f1_churn": 0.6217,
+      "recall_churn": 0.7754,
+      "precision_churn": 0.5188,
+      "accuracy": 0.7495
+    }
+  },
+  "latency_one_prediction_ms": 4.74,
+  "model_file": "model-1.0.0.joblib",
+  "model_size_kb": 2.4,
+  "python": "3.12.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.5",
+  "pandas": "3.1.1"
+}

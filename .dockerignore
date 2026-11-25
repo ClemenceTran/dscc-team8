@@ -1,0 +1,16 @@
+# Build context = repository root; only api/ and model/model-*.joblib are needed
+.git
+.github
+.venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+.ruff_cache
+api/tests
+model/data
+docs
+functions
+web
+infra
+samples
+*.md

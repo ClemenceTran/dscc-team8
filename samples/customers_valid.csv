@@ -1,0 +1,21 @@
+customerID,SeniorCitizen,tenure,MonthlyCharges,TotalCharges,gender,Partner,Dependents,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod
+4376-KFVRS,0,72,114.05,8468.2,Male,Yes,Yes,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Credit card (automatic)
+2754-SDJRD,1,8,100.15,908.55,Female,No,No,Yes,Yes,Fiber optic,No,No,No,Yes,Yes,Yes,Month-to-month,Yes,Credit card (automatic)
+9917-KWRBE,0,41,78.35,3211.2,Female,Yes,Yes,Yes,Yes,DSL,Yes,Yes,Yes,No,Yes,No,One year,Yes,Credit card (automatic)
+0365-GXEZS,0,18,78.2,1468.75,Male,Yes,No,Yes,No,Fiber optic,No,No,Yes,Yes,No,No,Month-to-month,No,Electronic check
+9385-NXKDA,0,72,82.65,5919.35,Female,Yes,No,Yes,Yes,DSL,Yes,Yes,Yes,No,Yes,Yes,Two year,Yes,Credit card (automatic)
+4686-UXDML,0,21,99.85,1992.55,Female,No,No,Yes,Yes,Fiber optic,No,Yes,No,No,Yes,Yes,Month-to-month,Yes,Credit card (automatic)
+2227-JRSJX,0,21,99.15,1956.4,Female,No,No,Yes,No,Fiber optic,No,Yes,No,Yes,Yes,Yes,Month-to-month,Yes,Bank transfer (automatic)
+4830-FAXFM,0,19,24.1,439.2,Male,No,Yes,Yes,Yes,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Credit card (automatic)
+1830-IPXVJ,0,61,19.75,1311.6,Female,Yes,Yes,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Credit card (automatic)
+4690-LLKUA,1,17,45.05,770.6,Male,No,No,Yes,No,DSL,No,No,No,No,No,No,Month-to-month,Yes,Electronic check
+5804-HYIEZ,0,70,106.05,7554.05,Male,Yes,Yes,Yes,Yes,Fiber optic,Yes,Yes,No,No,Yes,Yes,Month-to-month,Yes,Electronic check
+2388-LAESQ,1,72,114.85,8317.95,Female,Yes,No,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Bank transfer (automatic)
+5533-RJFTJ,0,49,30.2,1453.1,Male,No,No,No,No phone service,DSL,No,No,Yes,No,No,No,Month-to-month,Yes,Bank transfer (automatic)
+4706-AXVKM,1,11,84.8,906.85,Female,No,No,Yes,Yes,Fiber optic,No,No,No,No,No,Yes,Month-to-month,Yes,Credit card (automatic)
+0997-YTLNY,0,19,48.8,953.65,Female,No,Yes,Yes,No,DSL,No,No,No,Yes,No,No,Month-to-month,No,Mailed check
+7971-HLVXI,0,72,84.5,6130.85,Male,Yes,Yes,Yes,Yes,Fiber optic,No,No,No,No,No,Yes,Two year,Yes,Credit card (automatic)
+7337-CINUD,0,8,19.5,159.35,Female,Yes,Yes,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Bank transfer (automatic)
+1379-FRVEB,0,15,91.0,1430.05,Male,No,Yes,Yes,Yes,Fiber optic,No,Yes,No,No,Yes,No,Month-to-month,Yes,Electronic check
+4753-PADAS,0,67,105.7,6816.95,Female,Yes,No,Yes,Yes,Fiber optic,No,Yes,Yes,No,Yes,Yes,One year,Yes,Bank transfer (automatic)
+5701-GUXDC,0,26,35.4,978.6,Female,Yes,No,No,No phone service,DSL,Yes,No,Yes,No,No,No,One year,No,Credit card (automatic)
